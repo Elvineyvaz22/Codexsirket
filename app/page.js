@@ -1,147 +1,126 @@
-const content = {
-  az: {
-    nav: ['Haqqımızda', 'Xidmətlər', 'Layihələr', 'Əlaqə'],
-    heroTitle: 'Etibarlı tikinti və təmir həlləri',
-    heroText:
-      'TURAN.İ.O MMC 2019-cu ildən yaşayış və qeyri-yaşayış obyektlərinin tikintisi, cari və əsaslı təmiri, həmçinin kommunal kommunikasiya işləri üzrə xidmət göstərir.',
-    cta: 'Bizimlə əlaqə',
-    aboutTitle: 'Haqqımızda',
-    aboutText:
-      'Şirkətimiz tikinti prosesinin planlaşdırılmasından təhvil mərhələsinə qədər keyfiyyət, təhlükəsizlik və vaxtında icra prinsipləri ilə çalışır. Məqsədimiz müştərilərə uzunömürlü, funksional və estetik tikinti nəticələri təqdim etməkdir.',
-    servicesTitle: 'Xidmətlərimiz',
-    services: [
-      'Yaşayış binalarının tikintisi',
-      'Qeyri-yaşayış obyektlərinin tikintisi',
-      'Cari və əsaslı təmir işləri',
-      'Kommunal kommunikasiya xətləri',
-      'Fasad və dam örtüyü işləri',
-      'Daxili və xarici abadlaşdırma'
-    ],
-    projectsTitle: 'Layihə yanaşmamız',
-    projectsText:
-      'Hər layihədə ilkin baxış, smeta, texniki planlama, icra və təhvil mərhələləri ardıcıllıqla idarə olunur. Bu yanaşma həm büdcəyə, həm də keyfiyyətə nəzarəti gücləndirir.',
-    stats: ['2019-dan fəaliyyət', 'Tikinti və təmir', 'Kommunikasiya işləri'],
-    contactTitle: 'Əlaqə',
-    address: 'Bakı şəhəri, Nərimanov rayonu',
-    phone: '+994 50 123 45 67',
-    email: 'info@turanio.az'
-  },
-  en: {
-    nav: ['About', 'Services', 'Projects', 'Contact'],
-    heroTitle: 'Reliable construction and renovation solutions',
-    heroText:
-      'TURAN.İ.O LLC has been operating since 2019, providing construction of residential and non-residential buildings, renovation works, and utility communication services.',
-    cta: 'Contact us',
-    aboutTitle: 'About us',
-    aboutText:
-      'Our company works with a focus on quality, safety, and timely delivery from project planning to final handover. Our goal is to provide durable, functional, and aesthetically strong construction results.',
-    servicesTitle: 'Our services',
-    services: [
-      'Residential building construction',
-      'Non-residential facility construction',
-      'Current and capital renovation works',
-      'Utility communication lines',
-      'Facade and roofing works',
-      'Interior and exterior improvement'
-    ],
-    projectsTitle: 'Our project approach',
-    projectsText:
-      'Each project is managed through site assessment, cost estimation, technical planning, execution, and handover stages. This approach improves budget discipline and quality control.',
-    stats: ['Operating since 2019', 'Construction & renovation', 'Utility works'],
-    contactTitle: 'Contact',
-    address: 'Narimanov district, Baku, Azerbaijan',
-    phone: '+994 50 123 45 67',
-    email: 'info@turanio.az'
-  }
-};
+const services = [
+  ['Yaşayış binalarının tikintisi', 'Residential building construction'],
+  ['Qeyri-yaşayış obyektləri', 'Commercial and non-residential facilities'],
+  ['Cari və əsaslı təmir', 'Current and capital renovation works'],
+  ['Kommunal kommunikasiya', 'Utility communication and infrastructure lines'],
+  ['Fasad və dam örtüyü', 'Facade, roofing and exterior works'],
+  ['Abadlaşdırma işləri', 'Interior and exterior improvement works']
+];
 
-function Section({ id, eyebrow, title, children }) {
-  return (
-    <section id={id} className="section">
-      <p className="eyebrow">{eyebrow}</p>
-      <h2>{title}</h2>
-      {children}
-    </section>
-  );
-}
+const steps = [
+  ['İlkin baxış', 'Obyekt və texniki tələblər qiymətləndirilir.'],
+  ['Planlama', 'Smeta, iş qrafiki və icra mərhələləri hazırlanır.'],
+  ['İcra', 'Tikinti və təmir işləri nəzarətli şəkildə aparılır.'],
+  ['Təhvil', 'Layihə yekun yoxlamadan sonra təhvil verilir.']
+];
 
 export default function Home() {
-  const az = content.az;
-  const en = content.en;
-
   return (
     <main>
       <header className="site-header">
         <a className="logo" href="#top">TURAN.İ.O</a>
         <nav>
-          {az.nav.map((item, index) => (
-            <a key={item} href={`#${['about', 'services', 'projects', 'contact'][index]}`}>{item}</a>
-          ))}
+          <a href="#about">Haqqımızda</a>
+          <a href="#services">Xidmətlər</a>
+          <a href="#process">İş prosesi</a>
+          <a href="#contact">Əlaqə</a>
         </nav>
-        <div className="lang">AZ / EN</div>
+        <a className="header-cta" href="#contact">Təklif al</a>
       </header>
 
       <section id="top" className="hero">
-        <div className="hero-content">
-          <p className="badge">TURAN.İ.O MMC · Since 2019</p>
-          <h1>{az.heroTitle}</h1>
-          <p>{az.heroText}</p>
+        <div className="hero-text">
+          <p className="label">TURAN.İ.O MMC · 2019-cu ildən</p>
+          <h1>Etibarlı tikinti və mühəndislik həlləri</h1>
+          <p>
+            Yaşayış və qeyri-yaşayış binalarının tikintisi, cari və əsaslı təmir,
+            kommunal kommunikasiya və abadlaşdırma işləri üzrə peşəkar xidmət.
+          </p>
           <div className="hero-actions">
-            <a href="#contact" className="button">{az.cta}</a>
-            <a href="#services" className="button secondary">Xidmətlərə bax</a>
+            <a className="primary" href="#contact">Bizimlə əlaqə</a>
+            <a className="secondary" href="#services">Xidmətlərə bax</a>
           </div>
         </div>
-        <div className="hero-card">
-          {az.stats.map((stat) => <span key={stat}>{stat}</span>)}
+        <div className="hero-visual">
+          <div className="image-card"></div>
+          <div className="stats-card">
+            <strong>2019</strong>
+            <span>fəaliyyətə başlanılıb</span>
+          </div>
         </div>
       </section>
 
-      <Section id="about" eyebrow="01 / ABOUT" title={az.aboutTitle}>
-        <div className="two-col">
-          <p>{az.aboutText}</p>
-          <p>{en.aboutText}</p>
+      <section id="about" className="section about-grid">
+        <div>
+          <p className="label">Haqqımızda / About</p>
+          <h2>Layihələrdə keyfiyyət, təhlükəsizlik və vaxtında təhvil prinsipi</h2>
         </div>
-      </Section>
+        <div className="text-block">
+          <p>
+            TURAN.İ.O MMC 2019-cu ildən tikinti və təmir sahəsində fəaliyyət göstərir.
+            Şirkət yaşayış, qeyri-yaşayış obyektləri, təmir və kommunal kommunikasiya
+            işlərini planlı və məsuliyyətli şəkildə icra edir.
+          </p>
+          <p>
+            TURAN.İ.O LLC has been operating since 2019, delivering construction,
+            renovation and utility infrastructure solutions with a focus on quality,
+            safety and timely project completion.
+          </p>
+        </div>
+      </section>
 
-      <Section id="services" eyebrow="02 / SERVICES" title={az.servicesTitle}>
-        <div className="cards">
-          {az.services.map((service, index) => (
-            <article className="card" key={service}>
-              <span>0{index + 1}</span>
-              <h3>{service}</h3>
-              <p>{en.services[index]}</p>
+      <section id="services" className="section soft">
+        <div className="section-head">
+          <p className="label">Xidmətlər / Services</p>
+          <h2>Gördüyümüz əsas işlər</h2>
+        </div>
+        <div className="service-grid">
+          {services.map(([az, en], index) => (
+            <article className="service-card" key={az}>
+              <span>{String(index + 1).padStart(2, '0')}</span>
+              <h3>{az}</h3>
+              <p>{en}</p>
             </article>
           ))}
         </div>
-      </Section>
+      </section>
 
-      <Section id="projects" eyebrow="03 / PROJECTS" title={az.projectsTitle}>
-        <div className="project-box">
-          <p>{az.projectsText}</p>
-          <p>{en.projectsText}</p>
+      <section id="process" className="section">
+        <div className="section-head narrow">
+          <p className="label">İş prosesi / Process</p>
+          <h2>Layihəni başlanğıcdan təhvilə qədər idarə edirik</h2>
         </div>
-      </Section>
+        <div className="process-grid">
+          {steps.map(([title, text], index) => (
+            <div className="process-item" key={title}>
+              <b>{index + 1}</b>
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </div>
+          ))}
+        </div>
+      </section>
 
-      <Section id="contact" eyebrow="04 / CONTACT" title={az.contactTitle}>
-        <div className="contact-grid">
-          <div>
-            <h3>TURAN.İ.O MMC</h3>
-            <p>{az.address}</p>
-          </div>
-          <div>
-            <h3>Telefon</h3>
-            <p>{az.phone}</p>
-          </div>
-          <div>
-            <h3>Email</h3>
-            <p>{az.email}</p>
-          </div>
+      <section id="contact" className="contact-section">
+        <div>
+          <p className="label light">Əlaqə / Contact</p>
+          <h2>Layihəniz üçün ilkin təklif alın</h2>
+          <p>
+            Tikinti, təmir və kommunikasiya işləri ilə bağlı müraciətinizi göndərin.
+            Komandamız sizinlə əlaqə saxlayacaq.
+          </p>
         </div>
-      </Section>
+        <div className="contact-card">
+          <p><strong>Ünvan:</strong> Bakı şəhəri, Nərimanov rayonu</p>
+          <p><strong>Telefon:</strong> +994 50 123 45 67</p>
+          <p><strong>Email:</strong> info@turanio.az</p>
+          <a href="tel:+994501234567">Zəng et</a>
+        </div>
+      </section>
 
       <footer>
         <strong>TURAN.İ.O</strong>
-        <span>© 2026. Bütün hüquqlar qorunur.</span>
+        <span>© 2026 TURAN.İ.O MMC. Bütün hüquqlar qorunur.</span>
       </footer>
     </main>
   );
