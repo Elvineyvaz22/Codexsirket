@@ -14,6 +14,24 @@ const steps = [
   ['Təhvil', 'Layihə yekun yoxlamadan sonra təhvil verilir.']
 ];
 
+const projects = [
+  {
+    title: 'Yaşayış obyektləri',
+    text: 'Müasir yaşayış binaları və fərdi evlər üzrə tikinti işləri.',
+    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=85'
+  },
+  {
+    title: 'Kommersiya binaları',
+    text: 'Ofis, mağaza və qeyri-yaşayış obyektləri üçün tikinti həlləri.',
+    image: 'https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=85'
+  },
+  {
+    title: 'Mühəndislik işləri',
+    text: 'Kommunal kommunikasiya, sahə planlama və infrastruktur işləri.',
+    image: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=85'
+  }
+];
+
 export default function Home() {
   return (
     <main>
@@ -22,6 +40,7 @@ export default function Home() {
         <nav>
           <a href="#about">Haqqımızda</a>
           <a href="#services">Xidmətlər</a>
+          <a href="#projects">Layihələr</a>
           <a href="#process">İş prosesi</a>
           <a href="#contact">Əlaqə</a>
         </nav>
@@ -80,6 +99,24 @@ export default function Home() {
               <span>{String(index + 1).padStart(2, '0')}</span>
               <h3>{az}</h3>
               <p>{en}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section id="projects" className="section projects-section">
+        <div className="section-head">
+          <p className="label">Layihələr / Projects</p>
+          <h2>Tikinti və mühəndislik istiqamətlərimiz</h2>
+        </div>
+        <div className="project-grid">
+          {projects.map((project) => (
+            <article className="project-card" key={project.title}>
+              <img src={project.image} alt={project.title} />
+              <div>
+                <h3>{project.title}</h3>
+                <p>{project.text}</p>
+              </div>
             </article>
           ))}
         </div>
